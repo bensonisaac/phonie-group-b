@@ -22,7 +22,7 @@ main {
       rgba(119, 23, 193, 0.95) 47%,
       rgba(119, 23, 193, 1) 100%
     ),
-    url(../sheldon.jpg);
+    url(../media/sheldon.jpg);
 
   background-size: cover;
   background-position: center;
@@ -54,4 +54,5 @@ input {
   outline: none;
   border-radius: 0.5rem;
   border: none;
+  width: 100%;
 }
