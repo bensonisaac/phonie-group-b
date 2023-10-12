@@ -56,3 +56,16 @@ input {
   border: none;
   width: 100%;
 }
+
+.second_inner_div h1{
+
+  padding-top: 0px;
+  color: rgb(109, 73, 91);
+}
+
+
+.first_inner_div p{
+  padding-top: 20px;
+  margin-left: 40px;
+  color: rgb(155, 143, 148);
+}
