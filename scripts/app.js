@@ -122,7 +122,7 @@ const getProvider = (phone) => {
 const displayProvider = (provider) => {
   if (provider === null) {
   } else {
-    const path = `media/${provider}.svg`;
+    const path = `/media/${provider}.svg`;
     networkContainer.innerHTML = `<img src="${path}" alt="${provider}'s Logo" class="network">`;
   }
 };
