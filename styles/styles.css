@@ -23,7 +23,6 @@ main {
       rgba(119, 23, 193, 1) 100%
     ),
     url(../media/sheldon.jpg);
-
   background-size: cover;
   background-position: center;
   background-blend-mode: multiply;
@@ -32,7 +31,7 @@ main {
 .inner-div {
   margin: auto;
   background: #ffffffc7;
-  height: 350px; 
+  height: 350px;
   width: 80%;
   padding: 4rem;
   max-width: 800px;
@@ -47,14 +46,33 @@ form {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  width: 100%;
+  justify-content: space-between;
 }
 
-input, #restrict-network {
-  padding: 0.5rem;
+.input-div {
+  flex: 1;
+  /* width: 60%; */
+  display: flex;
+  gap: 0.5rem;
+}
+
+input {
+  width: 100%;
+}
+
+select {
+  /* flex: 1; */
+  width: 30%;
+}
+
+input,
+#restrict-network {
+  padding: 0.8rem;
   outline: none;
   border-radius: 0.5rem;
   border: none;
-  width: 100%;
+  /* width: 100%; */
 }
 
 .network {
@@ -68,13 +86,39 @@ input, #restrict-network {
   background-color: rgb(240, 179, 179);
 }
 
-.first_inner_div p{
+.first_inner_div p {
   padding-top: 20px;
-  margin-left: 40px;
-  color: rgb(155, 143, 148);
+  /* margin-left: 40px; */
+  color: rgb(0, 0, 0);
 }
 
-.second_inner_div h1{
+.second_inner_div h1 {
   padding-top: 0px;
   color: rgb(100, 73, 91);
+}
+
+@media only screen and (max-width: 500px) {
+  .inner-div {
+    padding: 1rem;
+    justify-content: center;
+    text-align: center;
+    width: 90%;
+  }
+
+  form {
+    flex-direction: column-reverse;
+  }
+
+  .input-div {
+    display: flex;
+    width: 100%;
+  }
+
+  .input-div input {
+    width: 100%;
+  }
+
+  select {
+    width: 50%;
+  }
 }
