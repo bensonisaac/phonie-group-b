@@ -67,3 +67,14 @@ input, #restrict-network {
 .restricted {
   background-color: rgb(240, 179, 179);
 }
+
+.first_inner_div p{
+  padding-top: 20px;
+  margin-left: 40px;
+  color: rgb(155, 143, 148);
+}
+
+.second_inner_div h1{
+  padding-top: 0px;
+  color: rgb(100, 73, 91);
+}
