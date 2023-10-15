@@ -47,7 +47,7 @@ function eventHandler(domEvent, event_) {
         // added conditional for network restriction
         else if (provider == filterNetwork.toLowerCase()) {
           // Change textbox when restriction is active
-        
+
           let _9mobPatStr = _9mobPattern.toString();
           // convert patterns to strings
           _9mobPatStr = _9mobPatStr.substring(1, _9mobPatStr.length - 1);
@@ -60,27 +60,35 @@ function eventHandler(domEvent, event_) {
           // end of convert patterns to strings
 
           if (filterNetwork.toLowerCase() == "9mobile") {
-            tel.setAttribute("pattern", _airtelPatStr+'|'+ _mtnPatStr+'|'+_gloPatStr);
+            tel.setAttribute(
+              "pattern",
+              _airtelPatStr + "|" + _mtnPatStr + "|" + _gloPatStr
+            );
+            errorDisplay.innerHTML = `<p class="display">${provider} is restricted</p>`;
+          } else if (filterNetwork.toLowerCase() == "airtel") {
+            tel.setAttribute(
+              "pattern",
+              _9mobPatStr + "|" + _mtnPatStr + "|" + _gloPatStr
+            );
+            errorDisplay.innerHTML = `<p class="display">${provider} is restricted</p>`;
+          } else if (filterNetwork.toLowerCase() == "mtn") {
+            tel.setAttribute(
+              "pattern",
+              _airtelPatStr + "|" + _9mobPatStr + "|" + _gloPatStr
+            );
+            errorDisplay.innerHTML = `<p class="display">${provider} is restricted</p>`;
+          } else if (filterNetwork.toLowerCase() == "glo") {
+            tel.setAttribute(
+              "pattern",
+              _airtelPatStr + "|" + _mtnPatStr + "|" + _9mobPatStr
+            );
             errorDisplay.innerHTML = `<p class="display">${provider} is restricted</p>`;
           }
-          else if (filterNetwork.toLowerCase() == "airtel") {
-            tel.setAttribute("pattern", _9mobPatStr+'|'+ _mtnPatStr+'|'+_gloPatStr);
-            errorDisplay.innerHTML = `<p class="display">${provider} is restricted</p>`;
-          }
-          else if (filterNetwork.toLowerCase() == "mtn") {
-            tel.setAttribute("pattern", _airtelPatStr+'|'+_9mobPatStr+'|'+_gloPatStr);
-            errorDisplay.innerHTML = `<p class="display">${provider} is restricted</p>`;
-          }
-          else if (filterNetwork.toLowerCase() == "glo") {
-            tel.setAttribute("pattern", _airtelPatStr+'|'+ _mtnPatStr+'|'+_9mobPatStr);
-            errorDisplay.innerHTML = `<p class="display">${provider} is restricted</p>`;
-          }
-          tel.setAttribute("class", "restricted")
+          tel.setAttribute("class", "restricted");
         }
         // end of added conditional for network restriction
         else {
           tel.setAttribute("class", "");
-          tel.removeAttribute('pattern');
           errorDisplay.innerHTML = `<p class="display">This is ${provider} number</p>`;
         }
       } else {
@@ -112,6 +120,9 @@ const getProvider = (phone) => {
 };
 
 const displayProvider = (provider) => {
-  const path = `../media/${provider}.svg`;
-  networkContainer.innerHTML = `<img src="${path}" alt="${provider}'s Logo" class="network">`;
+  if (provider === null) {
+  } else {
+    const path = `media/${provider}.svg`;
+    networkContainer.innerHTML = `<img src="${path}" alt="${provider}'s Logo" class="network">`;
+  }
 };
