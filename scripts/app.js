@@ -89,6 +89,7 @@ function eventHandler(domEvent, event_) {
         // end of added conditional for network restriction
         else {
           tel.setAttribute("class", "");
+          tel.removeAttribute('pattern');
           errorDisplay.innerHTML = `<p class="display">This is ${provider} number</p>`;
         }
       } else {
