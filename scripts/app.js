@@ -88,12 +88,12 @@ function eventHandler(domEvent, event_) {
         }
         // end of added conditional for network restriction
         else {
-          tel.setAttribute("class", ""); 
-          tel.removeAttribute('pattern');
+          tel.setAttribute("class", "");
+          tel.removeAttribute("pattern");
           errorDisplay.innerHTML = `<p class="display">This is ${provider} number</p>`;
         }
       } else {
-        if (/[^0-9]/.test(phoneNumber)) {
+        if (/[^0-9 | +]/.test(phoneNumber)) {
           errorDisplay.innerHTML = "❌ Input must be a phone number";
         }
       }
@@ -122,6 +122,7 @@ const getProvider = (phone) => {
 
 const displayProvider = (provider) => {
   if (provider === null) {
+    networkContainer.innerHTML = ``;
   } else {
     const path = `media/${provider}.svg`;
     networkContainer.innerHTML = `<img src="${path}" alt="${provider}'s Logo" class="network">`;
