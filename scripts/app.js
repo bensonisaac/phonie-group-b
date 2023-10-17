@@ -35,7 +35,7 @@ function eventHandler(domEvent, event_) {
     }
     //end of adding if statement for validate +234 numbers
 
-    if (phoneNumber) {
+    if (phoneNumber && phoneNumber.length <= 11) {
       if (phoneNumberRegex.test(phoneNumber)) {
         //start: initialise restriction variable `filterNetwork`
         let filterNetwork = document.getElementById("restrict-network").value;
@@ -97,6 +97,11 @@ function eventHandler(domEvent, event_) {
           errorDisplay.innerHTML = "❌ Input must be a phone number";
         }
       }
+    } else if (phoneNumber && phoneNumber.length > 11) {
+      tel.setAttribute("class", "");
+      tel.removeAttribute("pattern");
+      displayProvider(null);
+      errorDisplay.innerHTML = `<p class="display">Input limit has been exceeded</p>`;
     } else {
       if (!phoneNumber) {
         networkContainer.innerHTML = "";
